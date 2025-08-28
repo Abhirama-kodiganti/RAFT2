@@ -1,0 +1,55 @@
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+
+# Output of build tools
+/build/
+/bin/
+/out/
+
+# Go build artifacts
+*.log
+*.coverprofile
+*.prof
+*.tmp
+
+# Go vendor directory (if using vendoring)
+vendor/
+
+# Go modules files (cache/lock)
+go.sum
+
+# Dependency directories (optional)
+Godeps/
+
+# IDE/editor settings
+.idea/
+.vscode/
+*.swp
+*.swo
+*.swn
+
+# OS generated files
+.DS_Store
+Thumbs.db
+*.pid
+*.seed
+*.bak
+
+# Project-specific data (Raft snapshots, state, etc.)
+data/
+*.db
+*.bolt
+*.snap
+*.raft
+*.raft.db
+raft-log.db
+raft-stable.db
+
+# dotenv / env files
+.env
+.env.*
