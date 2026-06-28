@@ -1,0 +1,144 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 30 25% 12%;
+    --foreground: 35 30% 90%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 24 30% 25%;
+    --primary-foreground: 35 30% 95%;
+    --secondary: 30 20% 90%;
+    --secondary-foreground: 24 30% 20%;
+    --muted: 30 15% 85%;
+    --muted-foreground: 24 15% 40%;
+    --accent: 30 30% 80%;
+    --accent-foreground: 24 30% 20%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 30 25% 85%;
+    --input: 30 25% 85%;
+    --ring: 24 30% 25%;
+    --radius: 0.5rem;
+  }
+  * { @apply border-border; }
+}
+
+.font-playfair { font-family: var(--font-playfair), serif; }
+.font-vibes    { font-family: var(--font-great-vibes), cursive; }
+.font-poppins  { font-family: var(--font-poppins), sans-serif; }
+.font-caveat   { font-family: var(--font-caveat), cursive; }
+
+/* ---------- Paper textures ---------- */
+.paper-aged {
+  background-color: #f4e8d0;
+  background-image:
+    radial-gradient(at 20% 15%, rgba(139, 90, 43, 0.18) 0px, transparent 50%),
+    radial-gradient(at 85% 80%, rgba(120, 70, 30, 0.22) 0px, transparent 55%),
+    radial-gradient(at 60% 40%, rgba(245, 222, 179, 0.4) 0px, transparent 60%),
+    radial-gradient(circle at 50% 50%, #f8edd1 0%, #ecd9b0 70%, #d9bf8a 100%);
+  position: relative;
+}
+.paper-aged::before {
+  content: '';
+  position: absolute; inset: 0;
+  pointer-events: none;
+  background-image:
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='400'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.4  0 0 0 0 0.25  0 0 0 0 0.1  0 0 0 0.35 0'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.35'/></svg>");
+  mix-blend-mode: multiply;
+  opacity: 0.55;
+}
+.paper-aged::after {
+  content: '';
+  position: absolute; inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at center, transparent 40%, rgba(60, 30, 10, 0.45) 100%);
+}
+
+.paper-darken {
+  background:
+    radial-gradient(ellipse at center, rgba(0,0,0,0) 50%, rgba(40,20,5,0.5) 100%);
+}
+
+/* ---------- Leather book cover ---------- */
+.leather {
+  background:
+    radial-gradient(ellipse at 30% 30%, #6b3a1a 0%, #4a2410 45%, #2a1408 100%);
+  background-blend-mode: multiply;
+  position: relative;
+}
+.leather::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='l'><feTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.15  0 0 0 0 0.07  0 0 0 0 0.03  0 0 0 0.6 0'/></filter><rect width='100%' height='100%' filter='url(%23l)' opacity='0.6'/></svg>");
+  mix-blend-mode: overlay;
+  opacity: 0.7;
+  pointer-events: none;
+  border-radius: inherit;
+}
+.leather::after {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 30% 30%, rgba(255,200,150,0.18) 0%, transparent 50%),
+    radial-gradient(ellipse at 70% 80%, rgba(0,0,0,0.5) 0%, transparent 60%);
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+/* Page edges */
+.page-edges {
+  background: repeating-linear-gradient(to right,
+    #d9bf8a 0px, #c9a667 1px, #b89455 2px, #d9bf8a 3px);
+}
+
+/* Polaroid */
+.polaroid {
+  background: linear-gradient(180deg, #fefcf5 0%, #f7f0db 100%);
+  box-shadow:
+    0 1px 2px rgba(0,0,0,0.25),
+    0 8px 24px rgba(0,0,0,0.45),
+    inset 0 0 30px rgba(180,140,90,0.12);
+}
+
+/* Masking tape */
+.tape {
+  background: linear-gradient(135deg, rgba(255, 240, 200, 0.78) 0%, rgba(245, 220, 170, 0.82) 100%);
+  border-left: 1px dashed rgba(120, 90, 50, 0.25);
+  border-right: 1px dashed rgba(120, 90, 50, 0.25);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.18);
+}
+
+/* Candlelight ambient */
+.candle-glow {
+  background: radial-gradient(ellipse at center,
+    rgba(255, 180, 110, 0.18) 0%,
+    rgba(255, 140, 70, 0.06) 35%,
+    transparent 70%);
+  filter: blur(8px);
+}
+
+/* String for hanging photos */
+.hanging-string {
+  background: linear-gradient(to bottom, #6b4a2a, #3a2410);
+  width: 2px;
+}
+
+/* Clothespin */
+.clothespin {
+  background: linear-gradient(135deg, #d4a574 0%, #a67c52 50%, #7a5934 100%);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.4), inset 0 1px 1px rgba(255,220,180,0.5);
+}
+
+/* hide scrollbar */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Soft handwriting underline */
+.ink-underline { text-decoration: underline wavy rgba(120, 60, 20, 0.4); text-underline-offset: 4px; }
